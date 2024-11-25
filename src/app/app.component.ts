@@ -16,7 +16,7 @@ export class AppComponent implements OnInit{
   title = 'angular-certification';
 
   ngOnInit(){
-    getDocs(collection(this.firestore, "testPath")).then((response) => {
+    getDocs(collection(this.firestore, "/test")).then((response) => {
       console.log(response.docs)
     })
   }
