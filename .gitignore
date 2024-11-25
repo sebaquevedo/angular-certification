@@ -20,7 +20,9 @@ yarn-error.log
 .settings/
 *.sublime-workspace
 
+
 # Visual Studio Code
+.vscode/
 .vscode/*
 !.vscode/settings.json
 !.vscode/tasks.json
@@ -45,3 +47,6 @@ Thumbs.db
 environments/environment.ts
 environments/environment.development.ts
 environments/environment.production.ts
+src/environments/environment.ts
+src/environments/environment.development.ts 
+src/environments/environment.production.ts  
