@@ -1,4 +1,16 @@
 <header>
-  <h1>Gestor de Proyectos</h1>
+  <h1>My Angular Store</h1>
 </header>
-<router-outlet></router-outlet>
+<nav class="main-nav">
+  <ul>
+    <li><a routerLink="/products" routerLinkActive="active-link">Products</a></li>
+    <li><a routerLink="/auth/login" routerLinkActive="active-link">Login</a></li>
+    <!-- Add more links here later e.g., Cart, User Profile -->
+  </ul>
+</nav>
+<main>
+  <router-outlet></router-outlet>
+</main>
+<footer>
+  <p>&copy; 2024 My Angular Store. All rights reserved.</p>
+</footer>

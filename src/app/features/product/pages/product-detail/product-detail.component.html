@@ -1,0 +1,16 @@
+<div class="product-detail-container" *ngIf="product$ | async as product; else loadingOrNotFound">
+  <a routerLink="/products" class="back-link">&larr; Back to Products</a>
+  <div class="product-content">
+    <img [src]="product.imageUrl || 'https://via.placeholder.com/300/000000/FFFFFF/?text=No+Image'" alt="{{ product.name }}" class="product-image">
+    <div class="product-info">
+      <h2>{{ product.name }}</h2>
+      <p class="price">{{ product.price | currency:'USD' }}</p>
+      <p class="description">{{ product.description }}</p>
+      <!-- Add to cart button can be added later -->
+    </div>
+  </div>
+</div>
+<ng-template #loadingOrNotFound>
+  <p>Loading product details or product not found...</p>
+  <a routerLink="/products">Go back to products</a>
+</ng-template>

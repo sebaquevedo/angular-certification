@@ -1,0 +1,13 @@
+<div class="product-list-container">
+  <h2>Our Products</h2>
+  <div class="products-grid">
+    <div *ngFor="let product of products$ | async" class="product-item">
+      <a [routerLink]="['/products', product.id]">
+        <img [src]="product.imageUrl || 'https://via.placeholder.com/150/000000/FFFFFF/?text=No+Image'" alt="{{ product.name }}">
+        <h3>{{ product.name }}</h3>
+        <p class="price">{{ product.price | currency:'USD' }}</p>
+      </a>
+    </div>
+  </div>
+  <p *ngIf="!(products$ | async)?.length">No products found.</p>
+</div>

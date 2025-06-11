@@ -1,0 +1,62 @@
+.product-detail-container {
+  padding: 20px;
+  max-width: 800px;
+  margin: 20px auto;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.back-link {
+  display: inline-block;
+  margin-bottom: 20px;
+  color: #007bff;
+  text-decoration: none;
+}
+
+.back-link:hover {
+  text-decoration: underline;
+}
+
+.product-content {
+  display: flex;
+  gap: 20px;
+}
+
+.product-image {
+  max-width: 300px;
+  max-height: 300px;
+  object-fit: cover;
+  border-radius: 4px;
+  border: 1px solid #ddd;
+}
+
+.product-info {
+  flex: 1;
+}
+
+.product-info h2 {
+  font-size: 2em;
+  margin-top: 0;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.product-info .price {
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #007bff;
+  margin-bottom: 15px;
+}
+
+.product-info .description {
+  font-size: 1em;
+  line-height: 1.6;
+  color: #555;
+}
+
+/* Styling for loading/not found message */
+ng-template p, ng-template a {
+  text-align: center;
+  display: block;
+}

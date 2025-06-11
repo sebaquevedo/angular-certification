@@ -1,0 +1,78 @@
+/* General app structure enhancements */
+:host {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+header {
+  background-color: #007bff;
+  color: white;
+  padding: 15px 20px;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+header h1 {
+  margin: 0;
+  font-size: 1.8em;
+}
+
+.main-nav {
+  background-color: #f8f9fa;
+  padding: 10px 20px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.main-nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center; /* Center links or use 'flex-start' / 'flex-end' */
+  gap: 20px; /* Spacing between links */
+}
+
+.main-nav ul li a {
+  text-decoration: none;
+  color: #007bff;
+  font-weight: bold;
+  padding: 8px 15px;
+  border-radius: 4px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.main-nav ul li a:hover,
+.main-nav ul li a.active-link {
+  background-color: #007bff;
+  color: white;
+}
+
+main {
+  flex: 1; /* Allows main content to grow and push footer down */
+  padding: 20px; /* Add some padding around the router outlet content */
+  background-color: #ffffff; /* Or a light gray like #f4f7f6 */
+}
+
+footer {
+  background-color: #343a40;
+  color: white;
+  text-align: center;
+  padding: 15px 20px;
+  margin-top: auto; /* Pushes footer to the bottom if content is short */
+}
+
+footer p {
+  margin: 0;
+  font-size: 0.9em;
+}
+
+/* Global link styling reset - often good for consistency */
+a {
+  text-decoration: none;
+  color: #007bff;
+}
+
+a:hover {
+  text-decoration: underline;
+}

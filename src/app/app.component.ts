@@ -1,23 +1,17 @@
-import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
-import { inject } from "@angular/core"
-import { collection, Firestore, getDocs } from '@angular/fire/firestore';
+import { Component } from '@angular/core';
+import { RouterModule } from '@angular/router'; // Required for routerLink, routerLinkActive, router-outlet
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, CommonModule],
+  imports: [RouterModule], // Make sure RouterModule is here
   templateUrl: './app.component.html',
-  styleUrl: './app.component.scss',
+  styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit{
-  firestore = inject(Firestore);
-  title = 'angular-certification';
-
-  ngOnInit(){
-    getDocs(collection(this.firestore, "/test")).then((response) => {
-      console.log(response.docs)
-    })
-  }
+export class AppComponent {
+  // The title property was used by the default Angular app,
+  // but we've hardcoded the title in app.component.html's h1
+  // and in index.html's <title> tag.
+  // So, this property is not strictly necessary anymore unless used elsewhere.
+  // title = 'My Angular Store';
 }
