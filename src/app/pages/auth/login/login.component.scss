@@ -1,0 +1,164 @@
+/* Contenedor principal del formulario */
+.login-container {
+  max-width: 400px;
+  margin: 50px auto;
+  padding: 30px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  font-family: Arial, sans-serif;
+  color: #333;
+}
+
+/* Título del formulario */
+.login-container h2 {
+  text-align: center;
+  color: #0056b3;
+  margin-bottom: 25px;
+  font-size: 1.8em;
+}
+
+/* Grupo de cada campo (label + input) */
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+  color: #555;
+}
+
+/* --- INICIO DE LA CORRECCIÓN CLAVE PARA TODOS LOS INPUTS --- */
+
+/* Estilos base para TODOS los inputs de texto y password */
+.form-group input[type="email"],
+.form-group input[type="password"],
+.form-group input[type="text"] {
+  /* Añadido input[type="text"] para futuras compatibilidades */
+  width: 100%; /* Ocupa todo el ancho disponible del padre */
+  padding: 12px 10px; /* Padding estándar para todos los lados */
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1em;
+  box-sizing: border-box; /* ¡Crucial! Incluye padding y borde en el ancho total */
+}
+
+/* --- FIN DE LA CORRECCIÓN CLAVE PARA TODOS LOS INPUTS --- */
+
+/* Estilo específico para el contenedor del campo de contraseña */
+.password-field-container {
+  position: relative; /* Esencial para posicionar el botón toggle absolutamente dentro */
+  /* Los márgenes y otros estilos ya se aplican desde .form-group */
+}
+
+/* Ajuste SÓLO para el input de la contraseña para dejar espacio al toggle */
+.password-field-container input[type="password"],
+.password-field-container input[type="text"] {
+  /* Aplica también si el tipo cambia a 'text' */
+  padding-right: 40px; /* Deja espacio para el botón de alternar visibilidad */
+}
+
+/* Estilo para el botón de alternar visibilidad */
+.toggle-password-visibility {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  font-size: 1.2em;
+  color: #888;
+  z-index: 10;
+  width: auto;
+  height: auto;
+  line-height: 1;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.toggle-password-visibility:hover {
+  color: #333;
+}
+
+/* Estilo para inputs cuando son inválidos y han sido tocados */
+.form-group input.ng-invalid.ng-touched {
+  border-color: #dc3545;
+  box-shadow: 0 0 5px rgba(220, 53, 69, 0.5);
+}
+
+/* Mensajes de error individuales para campos */
+.error-message {
+  color: #dc3545;
+  font-size: 0.85em;
+  margin-top: 5px;
+}
+
+/* Estilo para el mensaje de error general del formulario */
+.error-feedback {
+  color: #dc3545;
+  background-color: #f8d7da;
+  border: 1px solid #f5c6cb;
+  padding: 10px 15px;
+  border-radius: 5px;
+  margin-top: 20px;
+  text-align: center;
+  font-weight: bold;
+}
+
+/* Estilos para los botones */
+button {
+  width: 100%;
+  padding: 12px;
+  margin-top: 15px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.1em;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button[type="submit"] {
+  background-color: #007bff;
+  color: white;
+}
+
+button[type="submit"]:hover:not([disabled]) {
+  background-color: #0056b3;
+}
+
+button[type="button"] {
+  background-color: #6c757d;
+  color: white;
+}
+
+button[type="button"]:hover:not([disabled]) {
+  background-color: #5a6268;
+}
+
+button[type="button"]:nth-of-type(2) {
+  background-color: #db4437;
+  margin-top: 20px;
+}
+
+button[type="button"]:nth-of-type(2):hover:not([disabled]) {
+  background-color: #c0382f;
+}
+
+button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+/* Para navegadores que muestran un "ojo" nativo, ocultarlo si es necesario */
+input[type="password"]::-ms-reveal,
+input[type="password"]::-webkit-contacts-auto-fill-button {
+  display: none !important;
+}

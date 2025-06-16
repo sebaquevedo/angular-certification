@@ -1,29 +1,77 @@
-<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-    <label for="email">Email:</label>
-    <input id="email" formControlName="email" type="email" />
-    <div *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched">
-      <small *ngIf="loginForm.get('email')?.hasError('required')">Email is required</small>
-      <small *ngIf="loginForm.get('email')?.hasError('email')">Invalid email</small>
+<div class="login-container">
+  <h2>Iniciar Sesión / Registrarse</h2>
+
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="email">Correo Electrónico:</label>
+      <input
+        type="email"
+        id="email"
+        formControlName="email"
+        placeholder="tu@ejemplo.com"
+      />
+      <div
+        *ngIf="
+          loginForm.get('email')?.invalid &&
+          (loginForm.get('email')?.dirty || loginForm.get('email')?.touched)
+        "
+        class="error-message"
+      >
+        <div *ngIf="loginForm.get('email')?.errors?.['required']">
+          El correo electrónico es requerido.
+        </div>
+        <div *ngIf="loginForm.get('email')?.errors?.['email']">
+          El correo electrónico no es válido.
+        </div>
+      </div>
     </div>
 
-    <label for="password">Password:</label>
-    <input id="password" formControlName="password" type="password" />
-    <div *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched">
-      <small *ngIf="loginForm.get('password')?.hasError('required')">Password is required</small>
-      <small *ngIf="loginForm.get('password')?.hasError('minlength')">
-        Password must be at least 6 characters
-      </small>
+    <div class="form-group password-field-container">
+      <label for="password">Contraseña:</label>
+      <input
+        [type]="passwordFieldType"
+        id="password"
+        formControlName="password"
+        placeholder="Tu contraseña"
+      />
+      <button
+        type="button"
+        class="toggle-password-visibility"
+        (click)="togglePasswordVisibility()"
+      >
+        <ng-container *ngIf="passwordFieldType === 'password'">
+          👁️
+        </ng-container>
+        <ng-container *ngIf="passwordFieldType === 'text'"> 🙈 </ng-container>
+      </button>
+      <div
+        *ngIf="
+          loginForm.get('password')?.invalid &&
+          (loginForm.get('password')?.dirty ||
+            loginForm.get('password')?.touched)
+        "
+        class="error-message"
+      >
+        <div *ngIf="loginForm.get('password')?.errors?.['required']">
+          La contraseña es requerida.
+        </div>
+        <div *ngIf="loginForm.get('password')?.errors?.['minlength']">
+          La contraseña debe tener al menos 6 caracteres.
+        </div>
+      </div>
     </div>
 
-    <button type="submit" [disabled]="loginForm.invalid">Login</button>
+    <button type="submit" [disabled]="loginForm.invalid">Iniciar Sesión</button>
+    <button type="button" (click)="onRegister()" [disabled]="loginForm.invalid">
+      Registrarse
+    </button>
 
-    <p>
-      Don't have an account?
-      <a routerLink="/auth/register">Register here</a>
-    </p>
-    <p>
-      Forgot your password?
-      <a routerLink="/auth/reset-password">Reset it here</a>
-    </p>
-    
+    <button type="button" (click)="onGoogleLogin()">
+      Iniciar Sesión con Google
+    </button>
   </form>
+
+  <div *ngIf="errorMessage" class="error-feedback">
+    {{ errorMessage }}
+  </div>
+</div>

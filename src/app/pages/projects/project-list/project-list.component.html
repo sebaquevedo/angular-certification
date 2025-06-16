@@ -1,0 +1,27 @@
+<div class="projects-list-container">
+  <h3>Proyectos Actuales</h3>
+
+  <div *ngIf="isLoading()" class="loading-message">Cargando proyectos...</div>
+
+  <div *ngIf="errorMessage()" class="error-feedback">{{ errorMessage() }}</div>
+
+  <div
+    *ngIf="!isLoading() && projects().length === 0 && !errorMessage()"
+    class="no-projects-message"
+  >
+    No tienes proyectos todavía. ¡Crea uno!
+  </div>
+
+  <ul class="projects-list" *ngIf="!isLoading() && projects().length > 0">
+    <li *ngFor="let project of projects()" class="project-item">
+      <h4>{{ project.name }}</h4>
+      <p>{{ project.description }}</p>
+      <small
+        >Creado el: {{ project.createdAt.toDate() | date : "short" }}</small
+      >
+      <button class="delete-button" (click)="onDelete(project.id!)">
+        Eliminar
+      </button>
+    </li>
+  </ul>
+</div>
